@@ -82,7 +82,6 @@ namespace SharePoint.FileManager
 				{
 					using (var fileDialog = new FolderBrowserDialog())
 					{
-						fileDialog.SelectedPath = "C:\\TestExport";
 						var result = fileDialog.ShowDialog();
 						if (result == System.Windows.Forms.DialogResult.OK)
 						{

@@ -19,3 +19,9 @@ C:\Users\sp_setup\Source\FileManager\SharePoint.FileManager\SharePoint.FileManag
 C:\Users\sp_setup\Source\NewFileManager\SharePoint.FileManager\bin\Debug\SharePoint.FileManager.exe.config
 C:\Users\sp_setup\Source\NewFileManager\SharePoint.FileManager\obj\Debug\SharePoint.FileManager.exe
 C:\Users\sp_setup\Source\NewFileManager\SharePoint.FileManager\obj\Debug\SharePoint.FileManager.pdb
+C:\Users\sp_setup\Source\NewFileManager\SharePoint.FileManager\bin\Debug\SharePoint.FileManager.exe
+C:\Users\sp_setup\Source\NewFileManager\SharePoint.FileManager\bin\Debug\SharePoint.FileManager.pdb
+C:\Users\sp_setup\Source\NewFileManager\SharePoint.FileManager\obj\Debug\SharePoint.FileManager.csprojResolveAssemblyReference.cache
+C:\Users\sp_setup\Source\NewFileManager\SharePoint.FileManager\obj\Debug\SharePoint.FileManager.Form1.resources
+C:\Users\sp_setup\Source\NewFileManager\SharePoint.FileManager\obj\Debug\SharePoint.FileManager.Properties.Resources.resources
+C:\Users\sp_setup\Source\NewFileManager\SharePoint.FileManager\obj\Debug\SharePoint.FileManager.csproj.GenerateResource.Cache

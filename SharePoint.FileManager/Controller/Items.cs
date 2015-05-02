@@ -74,7 +74,7 @@ namespace SharePoint.FileManager.Controller
 			parentFolder.Nodes.Add(node);
 		}
 
-		public static void ExportFiles(XmlElement element, ClientContext context, Container rootNode, string baseFolder)
+		public static void ExportFiles(XmlElement element, ClientContext context, Container rootNode, string baseFolder, DateTime refDate)
 		{
 			string folder = baseFolder;
 			if (!string.IsNullOrEmpty(rootNode.Url))
@@ -84,11 +84,20 @@ namespace SharePoint.FileManager.Controller
 					System.IO.Directory.CreateDirectory(folder);
 
 				var fld = context.Web.GetFolderByServerRelativeUrl(rootNode.Url);
+				IEnumerable<Microsoft.SharePoint.Client.File> files = null;
+				if (refDate != DateTime.MinValue)
+					files = context.LoadQuery(fld.Files.Where(a => a.TimeLastModified >= refDate));
+				else
+				{
+					context.Load(fld, a => a.Files);
+					files = fld.Files.AsEnumerable();
+				}
 
-				context.Load(fld, a => a.Files);
+
+
 				context.ExecuteQuery();
 
-				foreach (var file in fld.Files)
+				foreach (var file in files)
 				{
 					var fileInfo = Microsoft.SharePoint.Client.File.OpenBinaryDirect(context, file.ServerRelativeUrl);
 
@@ -117,7 +126,7 @@ namespace SharePoint.FileManager.Controller
 
 			foreach (Container subNode in rootNode.Nodes)
 			{
-				ExportFiles(element, context, subNode, folder);
+				ExportFiles(element, context, subNode, folder, refDate);
 			}
 		}
 	}

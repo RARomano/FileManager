@@ -40,6 +40,9 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.trvData = new System.Windows.Forms.TreeView();
 			this.btnExport = new System.Windows.Forms.Button();
+			this.dtPicker = new System.Windows.Forms.DateTimePicker();
+			this.rbAllItems = new System.Windows.Forms.RadioButton();
+			this.rbModifiedDate = new System.Windows.Forms.RadioButton();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -145,9 +148,9 @@
 			// trvData
 			// 
 			this.trvData.FullRowSelect = true;
-			this.trvData.Location = new System.Drawing.Point(12, 138);
+			this.trvData.Location = new System.Drawing.Point(12, 169);
 			this.trvData.Name = "trvData";
-			this.trvData.Size = new System.Drawing.Size(646, 290);
+			this.trvData.Size = new System.Drawing.Size(646, 259);
 			this.trvData.TabIndex = 1;
 			// 
 			// btnExport
@@ -160,11 +163,43 @@
 			this.btnExport.UseVisualStyleBackColor = true;
 			this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
 			// 
+			// dtPicker
+			// 
+			this.dtPicker.Location = new System.Drawing.Point(298, 139);
+			this.dtPicker.Name = "dtPicker";
+			this.dtPicker.Size = new System.Drawing.Size(360, 20);
+			this.dtPicker.TabIndex = 4;
+			// 
+			// rbAllItems
+			// 
+			this.rbAllItems.AutoSize = true;
+			this.rbAllItems.Checked = true;
+			this.rbAllItems.Location = new System.Drawing.Point(13, 141);
+			this.rbAllItems.Name = "rbAllItems";
+			this.rbAllItems.Size = new System.Drawing.Size(94, 17);
+			this.rbAllItems.TabIndex = 5;
+			this.rbAllItems.TabStop = true;
+			this.rbAllItems.Text = "Todos os itens";
+			this.rbAllItems.UseVisualStyleBackColor = true;
+			// 
+			// rbModifiedDate
+			// 
+			this.rbModifiedDate.AutoSize = true;
+			this.rbModifiedDate.Location = new System.Drawing.Point(123, 141);
+			this.rbModifiedDate.Name = "rbModifiedDate";
+			this.rbModifiedDate.Size = new System.Drawing.Size(133, 17);
+			this.rbModifiedDate.TabIndex = 6;
+			this.rbModifiedDate.Text = "Itens modificados após";
+			this.rbModifiedDate.UseVisualStyleBackColor = true;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(663, 481);
+			this.Controls.Add(this.rbModifiedDate);
+			this.Controls.Add(this.rbAllItems);
+			this.Controls.Add(this.dtPicker);
 			this.Controls.Add(this.btnExport);
 			this.Controls.Add(this.trvData);
 			this.Controls.Add(this.groupBox1);
@@ -173,6 +208,7 @@
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -190,6 +226,9 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TreeView trvData;
 		private System.Windows.Forms.Button btnExport;
+		private System.Windows.Forms.DateTimePicker dtPicker;
+		private System.Windows.Forms.RadioButton rbAllItems;
+		private System.Windows.Forms.RadioButton rbModifiedDate;
 	}
 }
 

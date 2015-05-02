@@ -87,8 +87,10 @@ namespace SharePoint.FileManager
 						{
 							XmlDocument doc = new XmlDocument();
 							var element = doc.AppendChild(doc.CreateElement("Files"));
-							Items.ExportFiles((XmlElement)element, connection, (Models.Container)selectedNode, fileDialog.SelectedPath);
+							var date = rbModifiedDate.Checked ? dtPicker.Value : DateTime.MinValue;
+							Items.ExportFiles((XmlElement)element, connection, (Models.Container)selectedNode, fileDialog.SelectedPath, date);
 							doc.Save(fileDialog.SelectedPath + "\\exportlog_" + DateTime.Now.ToString("yyyyMMdd") + ".xml");
+							MessageBox.Show("Arquivos exportados com sucesso!");
 						}
 					}
 				}

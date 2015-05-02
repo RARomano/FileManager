@@ -93,8 +93,6 @@ namespace SharePoint.FileManager.Controller
 					files = fld.Files.AsEnumerable();
 				}
 
-
-
 				context.ExecuteQuery();
 
 				foreach (var file in files)
@@ -127,6 +125,67 @@ namespace SharePoint.FileManager.Controller
 			foreach (Container subNode in rootNode.Nodes)
 			{
 				ExportFiles(element, context, subNode, folder, refDate);
+			}
+		}
+
+		public static void UploadFile(ClientContext context, string pathToFile, string sharePointDestination)
+		{
+			var folder = context.Web.GetFolderByServerRelativeUrl(sharePointDestination);
+
+			var contents = System.IO.File.ReadAllBytes(pathToFile);
+
+			FileCreationInformation newFile = new FileCreationInformation();
+			newFile.Content = contents;  //bytes here
+			newFile.Url = Path.GetFileName(pathToFile);
+			newFile.Overwrite = true;
+
+			try
+			{
+				var file = folder.Files.GetByUrl(sharePointDestination + "/" + Path.GetFileName(pathToFile));
+				context.Load(file);
+				context.ExecuteQuery();
+
+				if (file.Exists)
+				{
+					file.CheckOut();
+				}
+			}
+			catch
+			{
+			}
+
+			var uploadedFile = folder.Files.Add(newFile);
+			uploadedFile.CheckIn("File Uploaded", CheckinType.MajorCheckIn);
+			context.Load(uploadedFile);
+			context.ExecuteQuery();
+		}
+
+		internal static void ImportFiles(ClientContext context, IEnumerable<string> filesToImport, string[] xmlFiles)
+		{
+			foreach (string file in filesToImport)
+			{
+				foreach (var xmlFile in xmlFiles)
+				{
+					XmlDocument doc = new XmlDocument();
+					doc.Load(xmlFile);
+
+					var nav = doc.CreateNavigator();
+					var rs = nav.Select("/Files/File[@Name='" + Path.GetFileName(file) + "']");
+
+					if (rs.Count > 0)
+					{
+						while (rs.MoveNext())
+						{
+							var current = rs.Current;
+							var destination = current.Value;
+
+							UploadFile(context, file, destination);
+						}
+
+						break;
+
+					}
+				}
 			}
 		}
 	}

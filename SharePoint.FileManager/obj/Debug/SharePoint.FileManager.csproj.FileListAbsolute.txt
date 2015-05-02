@@ -25,3 +25,5 @@ C:\Users\sp_setup\Source\NewFileManager\SharePoint.FileManager\obj\Debug\SharePo
 C:\Users\sp_setup\Source\NewFileManager\SharePoint.FileManager\obj\Debug\SharePoint.FileManager.Form1.resources
 C:\Users\sp_setup\Source\NewFileManager\SharePoint.FileManager\obj\Debug\SharePoint.FileManager.Properties.Resources.resources
 C:\Users\sp_setup\Source\NewFileManager\SharePoint.FileManager\obj\Debug\SharePoint.FileManager.csproj.GenerateResource.Cache
+C:\Users\sp_setup\Source\NewFileManager\SharePoint.FileManager\obj\Debug\SharePoint.FileManager.Importador.resources
+C:\Users\sp_setup\Source\NewFileManager\SharePoint.FileManager\obj\Debug\SharePoint.FileManager.MainForm.resources

@@ -89,7 +89,7 @@ namespace SharePoint.FileManager
 							var element = doc.AppendChild(doc.CreateElement("Files"));
 							var date = rbModifiedDate.Checked ? dtPicker.Value : DateTime.MinValue;
 							Items.ExportFiles((XmlElement)element, connection, (Models.Container)selectedNode, fileDialog.SelectedPath, date);
-							doc.Save(fileDialog.SelectedPath + "\\exportlog_" + DateTime.Now.ToString("yyyyMMdd") + ".xml");
+							doc.Save(fileDialog.SelectedPath + "\\exportlog_" + DateTime.Now.ToString("yyyyMMdd") + ".clixml");
 							MessageBox.Show("Arquivos exportados com sucesso!");
 						}
 					}
